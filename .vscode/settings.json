@@ -1,0 +1,6 @@
+{
+  "editor.detectIndentation": true,
+  "rust-analyzer.linkedProjects": [
+    "${workspaceFolder}/src/rust/Cargo.toml"
+  ],
+}

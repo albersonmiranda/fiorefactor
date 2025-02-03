@@ -1,0 +1,6 @@
+^fiorefactor\.Rproj$
+^\.Rproj\.user$
+^src/\.cargo$
+^src/rust/vendor$
+^src/Makevars$
+^src/Makevars\.win$
