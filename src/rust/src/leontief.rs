@@ -2,9 +2,9 @@ use extendr_api::prelude::*;
 use rayon::prelude::*;
 use crate::iom::Iom;
 
-// technical coefficients and Leontief matrices
 #[extendr]
 impl Iom {
+  /// Compute technical coefficients
   pub fn compute_technical_coefficients(&mut self) {
       let n = (self.intermediate_transactions.len() as f64).sqrt() as usize;
 

@@ -10,20 +10,38 @@
 #' @useDynLib fiorefactor, .registration = TRUE
 NULL
 
+#' Rust class for input-output matrix
+#' @description
+#' This is the description field!
+#' @format
+#' For some reason, this field introduces itself without asking.
+#' @usage
+#' For some reason, this field introduces itself without asking.
+#' @section Fields:
+#' - `name`: A string representing the name of the input-output matrix.
+#' - `intermediate_transactions`: A matrix of intermediate transactions.
+#' - `total_production`: A vector of total production.
+#' - `technical_coefficients_matrix`: A matrix of technical coefficients.
+#' @examples
+#' intermediate_transactions <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), 3, 3)
+#' total_production <- matrix(c(100, 200, 300), 1, 3)
+#' # instantiate iom object
+#' my_iom <- fiorefactor::iom$new("test", intermediate_transactions, total_production)
+#' # Calculate the technical coefficients
+#' my_iom$compute_technical_coefficients()
+#' # show the technical coefficients
+#' my_iom$technical_coefficients_matrix
+#' @export
+#' @section Methods:
+#' - `new`:  instantiate new iom class
+#' - `intermediate_transactions`:  Getter for intermediate_transactions matrix.
+#'
+#' @section Methods:
+#' - `compute_technical_coefficients`:  Compute technical coefficients
 Iom <- new.env(parent = emptyenv())
 
-Iom$new <- function(`_name`, intermediate_transactions, total_production) .Call(wrap__Iom__new, `_name`, intermediate_transactions, total_production)
-
-Iom$print <- function() invisible(.Call(wrap__Iom__print, self))
-
-Iom$`_name` <- function() .Call(wrap__Iom___name, self)
-
-Iom$intermediate_transactions <- function() .Call(wrap__Iom__intermediate_transactions, self)
-
-Iom$total_production <- function() .Call(wrap__Iom__total_production, self)
-
-Iom$technical_coefficients_matrix <- function() .Call(wrap__Iom__technical_coefficients_matrix, self)
-
+#' @rdname Iom
+#' @usage NULL
 #' @export
 `$.Iom` <- function (self, name) { func <- Iom[[name]]; environment(func) <- environment(); func }
 

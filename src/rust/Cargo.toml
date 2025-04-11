@@ -9,6 +9,5 @@ crate-type = [ 'staticlib' ]
 name = 'fiorefactor'
 
 [dependencies]
-extendr-api = '*'
-faer = '*'
-rayon = '*'
+extendr-api = {git = 'https://github.com/albersonmiranda/extendr.git', branch = 'methods-docs'}
+rayon = '1.10.0'

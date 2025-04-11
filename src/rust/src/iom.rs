@@ -1,19 +1,25 @@
 use extendr_api::prelude::*;
 
-/// @title Rust class for input-output matrix.
+#[extendr]
+pub struct Iom {
+    _name: String,
+    pub intermediate_transactions: Vec<f64>,
+    pub total_production: Vec<f64>,
+    pub technical_coefficients_matrix: RArray<f64, 2>,
+}
+
+/// Rust class for input-output matrix
 /// @description
-/// This class represents an input-output matrix.
+/// This is the description field!
+/// @format
+/// For some reason, this field introduces itself without asking.
+/// @usage
+/// For some reason, this field introduces itself without asking.
 /// @section Fields:
 /// - `name`: A string representing the name of the input-output matrix.
 /// - `intermediate_transactions`: A matrix of intermediate transactions.
 /// - `total_production`: A vector of total production.
 /// - `technical_coefficients_matrix`: A matrix of technical coefficients.
-/// @section Methods:
-/// - `compute_technical_coefficients`: Computes the technical coefficients matrix.
-/// - `compute_inplace`: Computes the technical coefficients matrix in place.
-/// - `name`: Getter for the name field.
-/// - `intermediate_transactions`: Getter for the intermediate_transactions field.
-/// - `total_production`: Getter for the total_production field.
 /// @examples
 /// intermediate_transactions <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), 3, 3)
 /// total_production <- matrix(c(100, 200, 300), 1, 3)
@@ -24,16 +30,9 @@ use extendr_api::prelude::*;
 /// # show the technical coefficients
 /// my_iom$technical_coefficients_matrix
 /// @export
-/// @rdname iom
-pub struct Iom {
-    _name: String,
-    pub intermediate_transactions: Vec<f64>,
-    pub total_production: Vec<f64>,
-    pub technical_coefficients_matrix: RArray<f64, [usize; 2]>,
-}
-
 #[extendr]
 impl Iom {
+    /// instantiate new iom class
     pub fn new(
         _name: String,
         intermediate_transactions: Vec<f64>,
@@ -72,6 +71,7 @@ Technical Coefficients Matrix: {:?}...
         &self._name
     }
 
+    /// Getter for intermediate_transactions matrix.
     pub fn intermediate_transactions(&self) -> Vec<f64> {
         self.intermediate_transactions.clone()
     }
