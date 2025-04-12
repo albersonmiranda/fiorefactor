@@ -5,6 +5,8 @@ use crate::iom::Iom;
 #[extendr]
 impl Iom {
   /// Compute technical coefficients
+  ///     - param: `self` A mutable reference to the Iom instance.
+  ///     - return: A new instance of the Iom class with the technical coefficients matrix computed.
   pub fn compute_technical_coefficients(&mut self) {
       let n = (self.intermediate_transactions.len() as f64).sqrt() as usize;
 

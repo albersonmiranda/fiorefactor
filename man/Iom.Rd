@@ -6,45 +6,35 @@
 \alias{$.Iom}
 \title{Rust class for input-output matrix}
 \format{
-For some reason, this field introduces itself without asking.
+An object of class \code{environment} of length 7.
 }
 \usage{
-For some reason, this field introduces itself without asking.
+Iom
 }
 \description{
-This is the description field!
+This is the description
 }
-\section{Fields}{
-
-\itemize{
-\item \code{name}: A string representing the name of the input-output matrix.
-\item \code{intermediate_transactions}: A matrix of intermediate transactions.
-\item \code{total_production}: A vector of total production.
-\item \code{technical_coefficients_matrix}: A matrix of technical coefficients.
-}
-}
-
 \section{Methods}{
 
 \itemize{
 \item \code{new}:  instantiate new iom class
+\itemize{
+\item param: \verb{_name} A string representing the name of the input-output matrix.
+\item param: \code{intermediate_transactions} A matrix of intermediate transactions.
+\item param: \code{total_production} A vector of total production.
+\item return: A new instance of the Iom class.
+}
 \item \code{intermediate_transactions}:  Getter for intermediate_transactions matrix.
 }
 
 
 \itemize{
 \item \code{compute_technical_coefficients}:  Compute technical coefficients
+\itemize{
+\item param: \code{self} A mutable reference to the Iom instance.
+\item return: A new instance of the Iom class with the technical coefficients matrix computed.
+}
 }
 }
 
-\examples{
-intermediate_transactions <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9), 3, 3)
-total_production <- matrix(c(100, 200, 300), 1, 3)
-# instantiate iom object
-my_iom <- fiorefactor::iom$new("test", intermediate_transactions, total_production)
-# Calculate the technical coefficients
-my_iom$compute_technical_coefficients()
-# show the technical coefficients
-my_iom$technical_coefficients_matrix
-}
 \keyword{datasets}
