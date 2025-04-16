@@ -5,34 +5,85 @@
 \alias{Iom}
 \alias{$.Iom}
 \title{Rust class for input-output matrix}
-\format{
-An object of class \code{environment} of length 7.
-}
 \usage{
-Iom
+Iom$new(
+  name,
+  intermediate_transactions,
+  total_production
+)
+}
+\arguments{
+\item{name}{(\code{character})\cr
+A string representing the name of the input-output matrix.}
+
+\item{intermediate_transactions}{(\code{matrix})\cr
+A matrix of intermediate transactions.}
+
+\item{total_production}{(\code{matrix})\cr A vector of total production.}
+}
+\value{
+A new instance of the \code{Iom} class.
 }
 \description{
-This is the description
+This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
+It contains methods to compute the technical coefficients matrix and other related operations.
 }
 \section{Methods}{
 
-\itemize{
-\item \code{new}:  instantiate new iom class
-\itemize{
-\item param: \verb{_name} A string representing the name of the input-output matrix.
-\item param: \code{intermediate_transactions} A matrix of intermediate transactions.
-\item param: \code{total_production} A vector of total production.
-\item return: A new instance of the Iom class.
+\subsection{Method \code{new}}{
+Instantiate a new Iom object
+\subsection{Arguments}{
+\describe{
+\item{\code{name}}{(\code{character})\cr A string representing the name of the input-output matrix.}
+\item{\code{intermediate_transactions}}{(\code{matrix})\cr A matrix of intermediate transactions.}
+\item{\code{total_production}}{(\code{character})\cr A vector of total production.}
+}}
+\subsection{details}
+This function creates a new instance of the Iom class.
+\subsection{return}
+A new instance of the Iom class.
+\subsection{examples}
+\preformatted{
+Iom$new(
+name = "example",
+intermediate_transactions = c(1, 2, 3, 4),
+total_production = c(5, 6)
+)
 }
-\item \code{intermediate_transactions}:  Getter for intermediate_transactions matrix.
+}
+
+\subsection{Method \code{intermediate_transactions}}{
+Getter for intermediate_transactions matrix.
+}
+
+\subsection{Method \code{total_production}}{
+Getter for total_production matrix.
+}
+
+\subsection{Method \code{technical_coefficients_matrix}}{
+Getter for technical_coefficients_matrix.
 }
 
 
-\itemize{
-\item \code{compute_technical_coefficients}:  Compute technical coefficients
-\itemize{
-\item param: \code{self} A mutable reference to the Iom instance.
-\item return: A new instance of the Iom class with the technical coefficients matrix computed.
+\subsection{Method \code{compute_technical_coefficients}}{
+Compute the technical coefficients matrix and populate the \code{technical_coefficients_matrix} field.
+\subsection{usage}
+\preformatted{
+Iom$compute_technical_coefficients()
+}
+\subsection{details}
+It computes the technical coefficientex matrix, a nxn matrix, known as \code{A} matrix, which is the column-wise ratio of intermediate transactions to total production.
+\subsection{return}
+Self (invisibly)
+\subsection{examples}
+\preformatted{
+iom <- Iom$new(
+name = "example",
+intermediate_transactions = c(1, 2, 3, 4),
+total_production = c(5, 6)
+)
+iom$compute_technical_coefficients()
+iom$technical_coefficients_matrix
 }
 }
 }

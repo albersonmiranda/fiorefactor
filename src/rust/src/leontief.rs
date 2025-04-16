@@ -4,9 +4,20 @@ use crate::iom::Iom;
 
 #[extendr]
 impl Iom {
-  /// Compute technical coefficients
-  ///     - param: `self` A mutable reference to the Iom instance.
-  ///     - return: A new instance of the Iom class with the technical coefficients matrix computed.
+  /// Compute the technical coefficients matrix and populate the `technical_coefficients_matrix` field.
+  /// @usage
+  /// Iom$compute_technical_coefficients()
+  /// @details
+  /// It computes the technical coefficientex matrix, a nxn matrix, known as `A` matrix, which is the column-wise ratio of intermediate transactions to total production.
+  /// @return Self (invisibly)
+  /// @examples
+  /// iom <- Iom$new(
+  ///   name = "example",
+  ///   intermediate_transactions = c(1, 2, 3, 4),
+  ///   total_production = c(5, 6)
+  /// )
+  /// iom$compute_technical_coefficients()
+  /// iom$technical_coefficients_matrix
   pub fn compute_technical_coefficients(&mut self) {
       let n = (self.intermediate_transactions.len() as f64).sqrt() as usize;
 

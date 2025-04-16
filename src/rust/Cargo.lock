@@ -42,7 +42,7 @@ checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
 [[package]]
 name = "extendr-api"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#547c4a71581c6427be4c5cf53551a8581824e7fb"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
 dependencies = [
  "extendr-ffi",
  "extendr-macros",
@@ -53,7 +53,7 @@ dependencies = [
 [[package]]
 name = "extendr-ffi"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#547c4a71581c6427be4c5cf53551a8581824e7fb"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
 dependencies = [
  "build-print",
 ]
@@ -61,7 +61,7 @@ dependencies = [
 [[package]]
 name = "extendr-macros"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#547c4a71581c6427be4c5cf53551a8581824e7fb"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
 dependencies = [
  "proc-macro2",
  "quote",

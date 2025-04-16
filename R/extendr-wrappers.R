@@ -12,27 +12,88 @@ NULL
 
 #' Rust class for input-output matrix
 #' @description
-#' This is the description
+#' This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
+#' It contains methods to compute the technical coefficients matrix and other related operations.
+#' @usage
+#' Iom$new(
+#'   name,
+#'   intermediate_transactions,
+#'   total_production
+#' )
+#' @format NULL
+#' @param name (`character`)\cr
+#' A string representing the name of the input-output matrix.
+#' @param intermediate_transactions (`matrix`)\cr
+#' A matrix of intermediate transactions.
+#' @param total_production (`matrix`)\cr A vector of total production.
+#' @return A new instance of the `Iom` class.
 #' @export
 #' @section Methods:
-#' - `new`:  instantiate new iom class
-#'     - param: `_name` A string representing the name of the input-output matrix.
-#'     - param: `intermediate_transactions` A matrix of intermediate transactions.
-#'     - param: `total_production` A vector of total production.
-#'     - return: A new instance of the Iom class.
-#' - `intermediate_transactions`:  Getter for intermediate_transactions matrix.
+#'\subsection{Method `new`}{
+#'Instantiate a new Iom object
+#' \subsection{Arguments}{
+#'\describe{
+#'\item{`name`}{(`character`)\cr A string representing the name of the input-output matrix.}
+#'\item{`intermediate_transactions`}{(`matrix`)\cr A matrix of intermediate transactions.}
+#'\item{`total_production`}{(`character`)\cr A vector of total production.}
+#'}}
+#' \subsection{details}
+#' This function creates a new instance of the Iom class.
+#' \subsection{return}
+#' A new instance of the Iom class.
+#' \subsection{examples}
+#' \preformatted{
+#'Iom$new(
+#'name = "example",
+#'intermediate_transactions = c(1, 2, 3, 4),
+#'total_production = c(5, 6)
+#')
+#'}
+#'}
+#'
+#'\subsection{Method `intermediate_transactions`}{
+#'Getter for intermediate_transactions matrix.
+#'}
+#'
+#'\subsection{Method `total_production`}{
+#'Getter for total_production matrix.
+#'}
+#'
+#'\subsection{Method `technical_coefficients_matrix`}{
+#'Getter for technical_coefficients_matrix.
+#'}
+#'
 #'
 #' @section Methods:
-#' - `compute_technical_coefficients`:  Compute technical coefficients
-#'     - param: `self` A mutable reference to the Iom instance.
-#'     - return: A new instance of the Iom class with the technical coefficients matrix computed.
+#'\subsection{Method `compute_technical_coefficients`}{
+#'Compute the technical coefficients matrix and populate the `technical_coefficients_matrix` field.
+#' \subsection{usage}
+#' \preformatted{
+#'Iom$compute_technical_coefficients()
+#'}
+#' \subsection{details}
+#' It computes the technical coefficientex matrix, a nxn matrix, known as `A` matrix, which is the column-wise ratio of intermediate transactions to total production.
+#' \subsection{return}
+#' Self (invisibly)
+#' \subsection{examples}
+#' \preformatted{
+#'iom <- Iom$new(
+#'name = "example",
+#'intermediate_transactions = c(1, 2, 3, 4),
+#'total_production = c(5, 6)
+#')
+#'iom$compute_technical_coefficients()
+#'iom$technical_coefficients_matrix
+#'}
+#'}
+#'
 Iom <- new.env(parent = emptyenv())
 
-Iom$new <- function(`_name`, intermediate_transactions, total_production) .Call(wrap__Iom__new, `_name`, intermediate_transactions, total_production)
+Iom$new <- function(name, intermediate_transactions, total_production) .Call(wrap__Iom__new, name, intermediate_transactions, total_production)
 
 Iom$print <- function() invisible(.Call(wrap__Iom__print, self))
 
-Iom$`_name` <- function() .Call(wrap__Iom___name, self)
+Iom$name <- function() .Call(wrap__Iom__name, self)
 
 Iom$intermediate_transactions <- function() .Call(wrap__Iom__intermediate_transactions, self)
 

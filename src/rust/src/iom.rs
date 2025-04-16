@@ -2,7 +2,7 @@ use extendr_api::prelude::*;
 
 #[extendr]
 pub struct Iom {
-    _name: String,
+    name: String,
     pub intermediate_transactions: Vec<f64>,
     pub total_production: Vec<f64>,
     pub technical_coefficients_matrix: RArray<f64, 2>,
@@ -10,24 +10,49 @@ pub struct Iom {
 
 /// Rust class for input-output matrix
 /// @description
-/// This is the description
+/// This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
+/// It contains methods to compute the technical coefficients matrix and other related operations.
+/// @usage
+/// Iom$new(
+///   name,
+///   intermediate_transactions,
+///   total_production
+/// )
+/// @format NULL
+/// @param name (`character`)\cr
+/// A string representing the name of the input-output matrix.
+/// @param intermediate_transactions (`matrix`)\cr
+/// A matrix of intermediate transactions.
+/// @param total_production (`matrix`)\cr A vector of total production.
+/// @return A new instance of the `Iom` class.
 /// @export
 #[extendr]
 impl Iom {
-    /// instantiate new iom class
-    ///     - param: `_name` A string representing the name of the input-output matrix.
-    ///     - param: `intermediate_transactions` A matrix of intermediate transactions.
-    ///     - param: `total_production` A vector of total production.
-    ///     - return: A new instance of the Iom class.
+    /// Instantiate a new Iom object
+    /// @details
+    /// This function creates a new instance of the Iom class.
+    /// @param name (`character`)\cr
+    /// A string representing the name of the input-output matrix.
+    /// @param intermediate_transactions (`matrix`)\cr
+    /// A matrix of intermediate transactions.
+    /// @param total_production (`character`)\cr
+    /// A vector of total production.
+    /// @return A new instance of the Iom class.
+    /// @examples
+    /// Iom$new(
+    ///     name = "example",
+    ///     intermediate_transactions = c(1, 2, 3, 4),
+    ///     total_production = c(5, 6)
+    /// )
     pub fn new(
-        _name: String,
+        name: String,
         intermediate_transactions: Vec<f64>,
         total_production: Vec<f64>,
     ) -> Self {
         let n = (intermediate_transactions.len() as f64).sqrt() as usize;
 
         Self {
-            _name,
+            name,
             intermediate_transactions,
             total_production,
             technical_coefficients_matrix: RArray::new_with_na(n, n),
@@ -42,7 +67,7 @@ Intermediate Transactions: {:?}...
 Total Production: {:?}...
 Technical Coefficients Matrix: {:?}...
 ",
-            self._name,
+            self.name,
             &self
                 .intermediate_transactions
                 .iter()
@@ -53,8 +78,8 @@ Technical Coefficients Matrix: {:?}...
         );
     }
 
-    pub fn _name(&self) -> &str {
-        &self._name
+    pub fn name(&self) -> &str {
+        &self.name
     }
 
     /// Getter for intermediate_transactions matrix.
@@ -62,10 +87,12 @@ Technical Coefficients Matrix: {:?}...
         self.intermediate_transactions.clone()
     }
 
+    /// Getter for total_production matrix.
     pub fn total_production(&self) -> Vec<f64> {
         self.total_production.clone()
     }
 
+    /// Getter for technical_coefficients_matrix.
     pub fn technical_coefficients_matrix(&self) -> Robj {
         self.technical_coefficients_matrix.clone()
     }
