@@ -118,5 +118,73 @@ Iom$compute_technical_coefficients <- function() invisible(.Call(wrap__Iom__comp
 #' @export
 `[[.Iom` <- `$.Iom`
 
+#' A test class to demonstrate the use of extendr.
+#' @description
+#' This is a test struct to check if it's working with multiple structs.
+#' @usage
+#' Test$new(name, value)
+#' @format NULL
+#' @param name (`character`)\cr
+#' A string representing the name of the test.
+#' @param value (`numeric`)\cr
+#' A numeric value representing the value of the test.
+#' @return A new instance of the `Test` class.
+#'
+#' @section Methods:
+#'\subsection{Method `new`}{
+#'Instantiate a new Test object
+#' \subsection{Arguments}{
+#'\describe{
+#'\item{`name`}{(`character`)\cr A string representing the name of the test.}
+#'\item{`value`}{(`numeric`)\cr A numeric value representing the value of the test.}
+#'}}
+#' \subsection{details}
+#' This function creates a new instance of the Test class.
+#' \subsection{return}
+#' A new instance of the Test class.
+#' \subsection{examples}
+#' \preformatted{
+#'Test$new(name = "example", value = 42)
+#'}
+#'}
+#'
+#'\subsection{Method `get_name`}{
+#' \subsection{details}
+#' This function returns the name of the test.
+#' \subsection{return}
+#' The name of the test.
+#' \subsection{examples}
+#' \preformatted{
+#'test <- Test$new(name = "example", value = 42)
+#'test$get_name()
+#'}
+#'}
+#'
+#'\subsection{Method `get_value`}{
+#' \subsection{details}
+#' This function returns the value of the test.
+#' \subsection{return}
+#' The value of the test.
+#' \subsection{examples}
+#' \preformatted{
+#'test <- Test$new(name = "example", value = 42)
+#'test$get_value()
+#'}
+#'}
+#'
+Test <- new.env(parent = emptyenv())
+
+Test$new <- function(name, value) .Call(wrap__Test__new, name, value)
+
+Test$get_name <- function() .Call(wrap__Test__get_name, self)
+
+Test$get_value <- function() .Call(wrap__Test__get_value, self)
+
+#' @export
+`$.Test` <- function (self, name) { func <- Test[[name]]; environment(func) <- environment(); func }
+
+#' @export
+`[[.Test` <- `$.Test`
+
 
 # nolint end

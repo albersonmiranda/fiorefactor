@@ -1,8 +1,8 @@
 mod iom;
 mod leontief;
+mod example;
 
 use extendr_api::prelude::*;
-
 
 // Macro to generate exports.
 // This ensures exported functions are registered with R.
@@ -11,4 +11,5 @@ extendr_module! {
     mod fiorefactor;
     use iom;
     use leontief;
+    use example;
 }
