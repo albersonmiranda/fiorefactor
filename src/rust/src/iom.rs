@@ -1,13 +1,5 @@
 use extendr_api::prelude::*;
 
-#[extendr]
-pub struct Iom {
-    name: String,
-    pub intermediate_transactions: Vec<f64>,
-    pub total_production: Vec<f64>,
-    pub technical_coefficients_matrix: RArray<f64, 2>,
-}
-
 /// Rust class for input-output matrix
 /// @description
 /// This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
@@ -25,7 +17,22 @@ pub struct Iom {
 /// A matrix of intermediate transactions.
 /// @param total_production (`matrix`)\cr A vector of total production.
 /// @return A new instance of the `Iom` class.
+/// 
+/// @details
+/// This paragraph of details is on struct-level.
+/// 
 /// @export
+#[extendr]
+pub struct Iom {
+    name: String,
+    pub intermediate_transactions: Vec<f64>,
+    pub total_production: Vec<f64>,
+    pub technical_coefficients_matrix: RArray<f64, 2>,
+}
+
+/// @details
+/// But hey! This impl-block adds stuff that requires clarification so this paragraph
+/// is on impl-level docs but it's appended to struct docs! Isn't that cool?
 #[extendr]
 impl Iom {
     /// Instantiate a new Iom object

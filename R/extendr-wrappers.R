@@ -27,7 +27,14 @@ NULL
 #' A matrix of intermediate transactions.
 #' @param total_production (`matrix`)\cr A vector of total production.
 #' @return A new instance of the `Iom` class.
+#' 
+#' @details
+#' This paragraph of details is on struct-level.
+#' 
 #' @export
+#' @details
+#' But hey! This impl-block adds stuff that requires clarification so this paragraph
+#' is on impl-level docs but it's appended to struct docs! Isn't that cool?
 #' @section Methods:
 #'\subsection{Method `new`}{
 #'Instantiate a new Iom object

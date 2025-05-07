@@ -28,6 +28,12 @@ A new instance of the \code{Iom} class.
 This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
 It contains methods to compute the technical coefficients matrix and other related operations.
 }
+\details{
+This paragraph of details is on struct-level.
+
+But hey! This impl-block adds stuff that requires clarification so this paragraph
+is on impl-level docs but it's appended to struct docs! Isn't that cool?
+}
 \section{Methods}{
 
 \subsection{Method \code{new}}{

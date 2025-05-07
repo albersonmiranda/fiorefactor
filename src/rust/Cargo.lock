@@ -42,7 +42,7 @@ checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
 [[package]]
 name = "extendr-api"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#4898af3a905b9dfab9c85bd791887b2cb72b3707"
 dependencies = [
  "extendr-ffi",
  "extendr-macros",
@@ -53,7 +53,7 @@ dependencies = [
 [[package]]
 name = "extendr-ffi"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#4898af3a905b9dfab9c85bd791887b2cb72b3707"
 dependencies = [
  "build-print",
 ]
@@ -61,8 +61,9 @@ dependencies = [
 [[package]]
 name = "extendr-macros"
 version = "0.8.0"
-source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#1c349c39788f735e465e3abddf9ddd57ee930fdc"
+source = "git+https://github.com/albersonmiranda/extendr.git?branch=methods-docs#4898af3a905b9dfab9c85bd791887b2cb72b3707"
 dependencies = [
+ "lazy_static",
  "proc-macro2",
  "quote",
  "syn",
@@ -75,6 +76,12 @@ dependencies = [
  "extendr-api",
  "rayon",
 ]
+
+[[package]]
+name = "lazy_static"
+version = "1.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 
 [[package]]
 name = "once_cell"
