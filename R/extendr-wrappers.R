@@ -40,21 +40,24 @@ NULL
 #'Instantiate a new Iom object
 #' \subsection{Arguments}{
 #'\describe{
-#'\item{`name`}{(`character`)\cr A string representing the name of the input-output matrix.}
-#'\item{`intermediate_transactions`}{(`matrix`)\cr A matrix of intermediate transactions.}
-#'\item{`total_production`}{(`character`)\cr A vector of total production.}
+#'\item{`name`}{(`character`) A string representing the name of the input-output matrix.}
+#'\item{`intermediate_transactions`}{(`matrix`) A matrix of intermediate transactions.}
+#'\item{`total_production`}{(`character`) A vector of total production.}
 #'}}
-#' \subsection{details}
-#' This function creates a new instance of the Iom class.
-#' \subsection{return}
-#' A new instance of the Iom class.
-#' \subsection{examples}
+#' \subsection{details}{
+#'This function creates a new instance of the Iom class.
+#'}
+#' \subsection{return}{
+#'A new instance of the Iom class.
+#'}
+#' \subsection{examples}{
 #' \preformatted{
 #'Iom$new(
 #'name = "example",
 #'intermediate_transactions = c(1, 2, 3, 4),
 #'total_production = c(5, 6)
 #')
+#'}
 #'}
 #'}
 #'
@@ -74,15 +77,18 @@ NULL
 #' @section Methods:
 #'\subsection{Method `compute_technical_coefficients`}{
 #'Compute the technical coefficients matrix and populate the `technical_coefficients_matrix` field.
-#' \subsection{usage}
+#' \subsection{usage}{
 #' \preformatted{
 #'Iom$compute_technical_coefficients()
 #'}
-#' \subsection{details}
-#' It computes the technical coefficientex matrix, a nxn matrix, known as `A` matrix, which is the column-wise ratio of intermediate transactions to total production.
-#' \subsection{return}
-#' Self (invisibly)
-#' \subsection{examples}
+#'}
+#' \subsection{details}{
+#'It computes the technical coefficientex matrix, a nxn matrix, known as `A` matrix, which is the column-wise ratio of intermediate transactions to total production.
+#'}
+#' \subsection{return}{
+#'Self (invisibly)
+#'}
+#' \subsection{examples}{
 #' \preformatted{
 #'iom <- Iom$new(
 #'name = "example",
@@ -91,6 +97,7 @@ NULL
 #')
 #'iom$compute_technical_coefficients()
 #'iom$technical_coefficients_matrix
+#'}
 #'}
 #'}
 #'
@@ -138,37 +145,46 @@ Iom$compute_technical_coefficients <- function() invisible(.Call(wrap__Iom__comp
 #'\item{`name`}{(`character`)\cr A string representing the name of the test.}
 #'\item{`value`}{(`numeric`)\cr A numeric value representing the value of the test.}
 #'}}
-#' \subsection{details}
-#' This function creates a new instance of the Test class.
-#' \subsection{return}
-#' A new instance of the Test class.
-#' \subsection{examples}
+#' \subsection{details}{
+#'This function creates a new instance of the Test class.
+#'}
+#' \subsection{return}{
+#'A new instance of the Test class.
+#'}
+#' \subsection{examples}{
 #' \preformatted{
 #'Test$new(name = "example", value = 42)
 #'}
 #'}
+#'}
 #'
 #'\subsection{Method `get_name`}{
-#' \subsection{details}
-#' This function returns the name of the test.
-#' \subsection{return}
-#' The name of the test.
-#' \subsection{examples}
+#' \subsection{details}{
+#'This function returns the name of the test.
+#'}
+#' \subsection{return}{
+#'The name of the test.
+#'}
+#' \subsection{examples}{
 #' \preformatted{
 #'test <- Test$new(name = "example", value = 42)
 #'test$get_name()
 #'}
 #'}
+#'}
 #'
 #'\subsection{Method `get_value`}{
-#' \subsection{details}
-#' This function returns the value of the test.
-#' \subsection{return}
-#' The value of the test.
-#' \subsection{examples}
+#' \subsection{details}{
+#'This function returns the value of the test.
+#'}
+#' \subsection{return}{
+#'The value of the test.
+#'}
+#' \subsection{examples}{
 #' \preformatted{
 #'test <- Test$new(name = "example", value = 42)
 #'test$get_value()
+#'}
 #'}
 #'}
 #'

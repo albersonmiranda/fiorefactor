@@ -38,11 +38,11 @@ impl Iom {
     /// Instantiate a new Iom object
     /// @details
     /// This function creates a new instance of the Iom class.
-    /// @param name (`character`)\cr
+    /// @param name (`character`)
     /// A string representing the name of the input-output matrix.
-    /// @param intermediate_transactions (`matrix`)\cr
+    /// @param intermediate_transactions (`matrix`)
     /// A matrix of intermediate transactions.
-    /// @param total_production (`character`)\cr
+    /// @param total_production (`character`)
     /// A vector of total production.
     /// @return A new instance of the Iom class.
     /// @examples

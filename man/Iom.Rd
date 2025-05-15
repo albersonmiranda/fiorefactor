@@ -40,21 +40,24 @@ is on impl-level docs but it's appended to struct docs! Isn't that cool?
 Instantiate a new Iom object
 \subsection{Arguments}{
 \describe{
-\item{\code{name}}{(\code{character})\cr A string representing the name of the input-output matrix.}
-\item{\code{intermediate_transactions}}{(\code{matrix})\cr A matrix of intermediate transactions.}
-\item{\code{total_production}}{(\code{character})\cr A vector of total production.}
+\item{\code{name}}{(\code{character}) A string representing the name of the input-output matrix.}
+\item{\code{intermediate_transactions}}{(\code{matrix}) A matrix of intermediate transactions.}
+\item{\code{total_production}}{(\code{character}) A vector of total production.}
 }}
-\subsection{details}
+\subsection{details}{
 This function creates a new instance of the Iom class.
-\subsection{return}
+}
+\subsection{return}{
 A new instance of the Iom class.
-\subsection{examples}
+}
+\subsection{examples}{
 \preformatted{
 Iom$new(
 name = "example",
 intermediate_transactions = c(1, 2, 3, 4),
 total_production = c(5, 6)
 )
+}
 }
 }
 
@@ -73,15 +76,18 @@ Getter for technical_coefficients_matrix.
 
 \subsection{Method \code{compute_technical_coefficients}}{
 Compute the technical coefficients matrix and populate the \code{technical_coefficients_matrix} field.
-\subsection{usage}
+\subsection{usage}{
 \preformatted{
 Iom$compute_technical_coefficients()
 }
-\subsection{details}
+}
+\subsection{details}{
 It computes the technical coefficientex matrix, a nxn matrix, known as \code{A} matrix, which is the column-wise ratio of intermediate transactions to total production.
-\subsection{return}
+}
+\subsection{return}{
 Self (invisibly)
-\subsection{examples}
+}
+\subsection{examples}{
 \preformatted{
 iom <- Iom$new(
 name = "example",
@@ -90,6 +96,7 @@ total_production = c(5, 6)
 )
 iom$compute_technical_coefficients()
 iom$technical_coefficients_matrix
+}
 }
 }
 }

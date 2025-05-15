@@ -29,37 +29,46 @@ Instantiate a new Test object
 \item{\code{name}}{(\code{character})\cr A string representing the name of the test.}
 \item{\code{value}}{(\code{numeric})\cr A numeric value representing the value of the test.}
 }}
-\subsection{details}
+\subsection{details}{
 This function creates a new instance of the Test class.
-\subsection{return}
+}
+\subsection{return}{
 A new instance of the Test class.
-\subsection{examples}
+}
+\subsection{examples}{
 \preformatted{
 Test$new(name = "example", value = 42)
 }
 }
+}
 
 \subsection{Method \code{get_name}}{
-\subsection{details}
+\subsection{details}{
 This function returns the name of the test.
-\subsection{return}
+}
+\subsection{return}{
 The name of the test.
-\subsection{examples}
+}
+\subsection{examples}{
 \preformatted{
 test <- Test$new(name = "example", value = 42)
 test$get_name()
 }
 }
+}
 
 \subsection{Method \code{get_value}}{
-\subsection{details}
+\subsection{details}{
 This function returns the value of the test.
-\subsection{return}
+}
+\subsection{return}{
 The value of the test.
-\subsection{examples}
+}
+\subsection{examples}{
 \preformatted{
 test <- Test$new(name = "example", value = 42)
 test$get_value()
+}
 }
 }
 }
