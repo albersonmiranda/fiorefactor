@@ -1,6 +1,5 @@
 mod iom;
 mod leontief;
-mod example;
 
 use extendr_api::prelude::*;
 
@@ -11,5 +10,4 @@ extendr_module! {
     mod fiorefactor;
     use iom;
     use leontief;
-    use example;
 }

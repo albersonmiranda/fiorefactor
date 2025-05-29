@@ -14,12 +14,7 @@ NULL
 #' @description
 #' This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
 #' It contains methods to compute the technical coefficients matrix and other related operations.
-#' @usage
-#' Iom$new(
-#'   name,
-#'   intermediate_transactions,
-#'   total_production
-#' )
+#' @usage NULL
 #' @format NULL
 #' @param name (`character`)\cr
 #' A string representing the name of the input-output matrix.
@@ -50,15 +45,6 @@ NULL
 #' \subsection{return}{
 #'A new instance of the Iom class.
 #'}
-#' \subsection{examples}{
-#' \preformatted{
-#'Iom$new(
-#'name = "example",
-#'intermediate_transactions = c(1, 2, 3, 4),
-#'total_production = c(5, 6)
-#')
-#'}
-#'}
 #'}
 #'
 #'\subsection{Method `intermediate_transactions`}{
@@ -73,23 +59,48 @@ NULL
 #'Getter for technical_coefficients_matrix.
 #'}
 #'
+#'\subsection{Method `leontief_inverse_matrix`}{
+#'Getter for leontief_inverse_matrix.
+#'}
+#'
+#' @examples
+#'## ---- Method `new` ---- ##
+#'Iom$new(
+#'name = "example",
+#'intermediate_transactions = c(1, 2, 3, 4),
+#'total_production = c(5, 6)
+#')
+#'
+#'
 #'
 #' @section Methods:
 #'\subsection{Method `compute_technical_coefficients`}{
 #'Compute the technical coefficients matrix and populate the `technical_coefficients_matrix` field.
-#' \subsection{usage}{
-#' \preformatted{
-#'Iom$compute_technical_coefficients()
-#'}
-#'}
 #' \subsection{details}{
 #'It computes the technical coefficientex matrix, a nxn matrix, known as `A` matrix, which is the column-wise ratio of intermediate transactions to total production.
 #'}
 #' \subsection{return}{
 #'Self (invisibly)
 #'}
-#' \subsection{examples}{
+#'}
+#'
+#'\subsection{Method `compute_leontief_inverse`}{
+#'Compute the Leontief inverse matrix and populate the `leontief_inverse_matrix` field.
+#' \subsection{usage}{
 #' \preformatted{
+#'NULL
+#'}
+#'}
+#' \subsection{details}{
+#'It computes the Leontief inverse matrix, a nxn matrix, known as `L` matrix, which is the inverse of the identity matrix minus the technical coefficients matrix.
+#'}
+#' \subsection{return}{
+#'Self (invisibly)
+#'}
+#'}
+#'
+#' @examples
+#'## ---- Method `compute_technical_coefficients` ---- ##
 #'iom <- Iom$new(
 #'name = "example",
 #'intermediate_transactions = c(1, 2, 3, 4),
@@ -97,9 +108,16 @@ NULL
 #')
 #'iom$compute_technical_coefficients()
 #'iom$technical_coefficients_matrix
-#'}
-#'}
-#'}
+#'
+#'## ---- Method `compute_leontief_inverse` ---- ##
+#'iom <- Iom$new(
+#'name = "example",
+#'intermediate_transactions = c(1, 2, 3, 4),
+#'total_production = c(5, 6)
+#')
+#'iom$compute_leontief_inverse()
+#'iom$leontief_inverse_matrix
+#'
 #'
 Iom <- new.env(parent = emptyenv())
 
@@ -115,7 +133,11 @@ Iom$total_production <- function() .Call(wrap__Iom__total_production, self)
 
 Iom$technical_coefficients_matrix <- function() .Call(wrap__Iom__technical_coefficients_matrix, self)
 
+Iom$leontief_inverse_matrix <- function() .Call(wrap__Iom__leontief_inverse_matrix, self)
+
 Iom$compute_technical_coefficients <- function() invisible(.Call(wrap__Iom__compute_technical_coefficients, self))
+
+Iom$compute_leontief_inverse <- function() invisible(.Call(wrap__Iom__compute_leontief_inverse, self))
 
 #' @rdname Iom
 #' @usage NULL
@@ -124,83 +146,6 @@ Iom$compute_technical_coefficients <- function() invisible(.Call(wrap__Iom__comp
 
 #' @export
 `[[.Iom` <- `$.Iom`
-
-#' A test class to demonstrate the use of extendr.
-#' @description
-#' This is a test struct to check if it's working with multiple structs.
-#' @usage
-#' Test$new(name, value)
-#' @format NULL
-#' @param name (`character`)\cr
-#' A string representing the name of the test.
-#' @param value (`numeric`)\cr
-#' A numeric value representing the value of the test.
-#' @return A new instance of the `Test` class.
-#'
-#' @section Methods:
-#'\subsection{Method `new`}{
-#'Instantiate a new Test object
-#' \subsection{Arguments}{
-#'\describe{
-#'\item{`name`}{(`character`)\cr A string representing the name of the test.}
-#'\item{`value`}{(`numeric`)\cr A numeric value representing the value of the test.}
-#'}}
-#' \subsection{details}{
-#'This function creates a new instance of the Test class.
-#'}
-#' \subsection{return}{
-#'A new instance of the Test class.
-#'}
-#' \subsection{examples}{
-#' \preformatted{
-#'Test$new(name = "example", value = 42)
-#'}
-#'}
-#'}
-#'
-#'\subsection{Method `get_name`}{
-#' \subsection{details}{
-#'This function returns the name of the test.
-#'}
-#' \subsection{return}{
-#'The name of the test.
-#'}
-#' \subsection{examples}{
-#' \preformatted{
-#'test <- Test$new(name = "example", value = 42)
-#'test$get_name()
-#'}
-#'}
-#'}
-#'
-#'\subsection{Method `get_value`}{
-#' \subsection{details}{
-#'This function returns the value of the test.
-#'}
-#' \subsection{return}{
-#'The value of the test.
-#'}
-#' \subsection{examples}{
-#' \preformatted{
-#'test <- Test$new(name = "example", value = 42)
-#'test$get_value()
-#'}
-#'}
-#'}
-#'
-Test <- new.env(parent = emptyenv())
-
-Test$new <- function(name, value) .Call(wrap__Test__new, name, value)
-
-Test$get_name <- function() .Call(wrap__Test__get_name, self)
-
-Test$get_value <- function() .Call(wrap__Test__get_value, self)
-
-#' @export
-`$.Test` <- function (self, name) { func <- Test[[name]]; environment(func) <- environment(); func }
-
-#' @export
-`[[.Test` <- `$.Test`
 
 
 # nolint end

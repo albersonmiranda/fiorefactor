@@ -5,3 +5,8 @@
 ^src/Makevars$
 ^src/Makevars\.win$
 ^src/rust/target$
+^\.vscode/$
+^LICENSE\.md$
+^\.vscode$
+^\.github$
+^README\.Rmd$

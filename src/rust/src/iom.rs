@@ -4,12 +4,7 @@ use extendr_api::prelude::*;
 /// @description
 /// This class represents an input-output matrix, which is a representation of the transactions between different sectors of an economy.
 /// It contains methods to compute the technical coefficients matrix and other related operations.
-/// @usage
-/// Iom$new(
-///   name,
-///   intermediate_transactions,
-///   total_production
-/// )
+/// @usage NULL
 /// @format NULL
 /// @param name (`character`)\cr
 /// A string representing the name of the input-output matrix.
@@ -28,6 +23,7 @@ pub struct Iom {
     pub intermediate_transactions: Vec<f64>,
     pub total_production: Vec<f64>,
     pub technical_coefficients_matrix: RArray<f64, 2>,
+    pub leontief_inverse_matrix: RArray<f64, 2>,
 }
 
 /// @details
@@ -63,6 +59,7 @@ impl Iom {
             intermediate_transactions,
             total_production,
             technical_coefficients_matrix: RArray::new_with_na(n, n),
+            leontief_inverse_matrix: RArray::new_with_na(n, n),
         }
     }
 
@@ -102,6 +99,11 @@ Technical Coefficients Matrix: {:?}...
     /// Getter for technical_coefficients_matrix.
     pub fn technical_coefficients_matrix(&self) -> Robj {
         self.technical_coefficients_matrix.clone()
+    }
+
+    /// Getter for leontief_inverse_matrix.
+    fn leontief_inverse_matrix(&self) -> Robj {
+        self.leontief_inverse_matrix.clone()
     }
 }
 

@@ -1,0 +1,58 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# fiorefactor
+
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/albersonmiranda/fiorefactor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/albersonmiranda/fiorefactor/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+An toy package to experiment creating an Extendr-powered R package from
+only Rust code (i.e. not using a R function to wrap and document rust
+code), including documentation.
+
+## Installation
+
+You can install the development version of fiorefactor from
+[GitHub](https://github.com/) with:
+
+``` r
+remotes::install_github("albersonmiranda/fiorefactor")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+# set seed
+set.seed(100)
+
+# data
+matrix_dim <- 2000
+intermediate_transactions <- matrix(
+  as.double(sample(1:1000, matrix_dim^2, replace = TRUE)),
+  nrow = matrix_dim,
+  ncol = matrix_dim
+)
+total_production <- matrix(
+  as.double(sample(4000000:6000000, matrix_dim, replace = TRUE)),
+  nrow = 1,
+  ncol = matrix_dim
+)
+
+# creating a new Input-Output Model
+iom <- fiorefactor::Iom$new(
+  name = "Example Model",
+  intermediate_transactions = intermediate_transactions,
+  total_production = total_production
+)
+
+# computing technical coefficients
+iom$compute_technical_coefficients()
+#> Successfully computed the technical coefficients matrix.
+
+# visualizing
+iom$print()
+```

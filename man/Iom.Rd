@@ -5,13 +5,6 @@
 \alias{Iom}
 \alias{$.Iom}
 \title{Rust class for input-output matrix}
-\usage{
-Iom$new(
-  name,
-  intermediate_transactions,
-  total_production
-)
-}
 \arguments{
 \item{name}{(\code{character})\cr
 A string representing the name of the input-output matrix.}
@@ -50,15 +43,6 @@ This function creates a new instance of the Iom class.
 \subsection{return}{
 A new instance of the Iom class.
 }
-\subsection{examples}{
-\preformatted{
-Iom$new(
-name = "example",
-intermediate_transactions = c(1, 2, 3, 4),
-total_production = c(5, 6)
-)
-}
-}
 }
 
 \subsection{Method \code{intermediate_transactions}}{
@@ -73,22 +57,48 @@ Getter for total_production matrix.
 Getter for technical_coefficients_matrix.
 }
 
+\subsection{Method \code{leontief_inverse_matrix}}{
+Getter for leontief_inverse_matrix.
+}
+
 
 \subsection{Method \code{compute_technical_coefficients}}{
 Compute the technical coefficients matrix and populate the \code{technical_coefficients_matrix} field.
-\subsection{usage}{
-\preformatted{
-Iom$compute_technical_coefficients()
-}
-}
 \subsection{details}{
 It computes the technical coefficientex matrix, a nxn matrix, known as \code{A} matrix, which is the column-wise ratio of intermediate transactions to total production.
 }
 \subsection{return}{
 Self (invisibly)
 }
-\subsection{examples}{
+}
+
+\subsection{Method \code{compute_leontief_inverse}}{
+Compute the Leontief inverse matrix and populate the \code{leontief_inverse_matrix} field.
+\subsection{usage}{
 \preformatted{
+NULL
+}
+}
+\subsection{details}{
+It computes the Leontief inverse matrix, a nxn matrix, known as \code{L} matrix, which is the inverse of the identity matrix minus the technical coefficients matrix.
+}
+\subsection{return}{
+Self (invisibly)
+}
+}
+}
+
+\examples{
+## ---- Method `new` ---- ##
+Iom$new(
+name = "example",
+intermediate_transactions = c(1, 2, 3, 4),
+total_production = c(5, 6)
+)
+
+
+
+## ---- Method `compute_technical_coefficients` ---- ##
 iom <- Iom$new(
 name = "example",
 intermediate_transactions = c(1, 2, 3, 4),
@@ -96,9 +106,16 @@ total_production = c(5, 6)
 )
 iom$compute_technical_coefficients()
 iom$technical_coefficients_matrix
-}
-}
-}
-}
 
+## ---- Method `compute_leontief_inverse` ---- ##
+iom <- Iom$new(
+name = "example",
+intermediate_transactions = c(1, 2, 3, 4),
+total_production = c(5, 6)
+)
+iom$compute_leontief_inverse()
+iom$leontief_inverse_matrix
+
+
+}
 \keyword{datasets}

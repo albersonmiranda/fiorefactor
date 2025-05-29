@@ -19,8 +19,7 @@ VENDOR_DIR = $(CURDIR)/vendor
 # CRAN note: Cargo and Rustc versions are reported during
 # configure via tools/msrv.R.
 #
-# When the NOT_CRAN flag is *not* set, the vendor.tar.xz, if present,
-# is unzipped and used for offline compilation.
+# vendor.tar.xz, if present, is unzipped and used for offline compilation.
 $(STATLIB):
 
 	if [ -f ./rust/vendor.tar.xz ]; then \
@@ -31,7 +30,7 @@ $(STATLIB):
 
 	export CARGO_HOME=$(CARGOTMP) && \
 	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
-	RUSTFLAGS="$(RUSTFLAGS) --print=native-static-libs" cargo build @CRAN_FLAGS@ --lib @PROFILE@ --manifest-path=./rust/Cargo.toml --target-dir $(TARGET_DIR)
+	RUSTFLAGS="$(RUSTFLAGS) --print=native-static-libs" cargo build @CRAN_FLAGS@ --lib @PROFILE@ --manifest-path=./rust/Cargo.toml --target-dir $(TARGET_DIR) @TARGET@
 
 	# Always clean up CARGOTMP
 	rm -Rf $(CARGOTMP);
@@ -40,4 +39,4 @@ rust_clean: $(SHLIB)
 	rm -Rf $(CARGOTMP) $(VENDOR_DIR) @CLEAN_TARGET@
 
 clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) $(TARGET_DIR)
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) $(TARGET_DIR) $(VENDOR_DIR)
