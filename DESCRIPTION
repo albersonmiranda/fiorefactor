@@ -25,7 +25,7 @@ Imports:
     fs,
     rlang
 License: MIT + file LICENSE
-Config/rextendr/version: 0.4.0.9000
+Config/rextendr/version: 0.4.1.9000
 Suggests: 
     knitr,
     rmarkdown,
