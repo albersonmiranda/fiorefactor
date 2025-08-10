@@ -1,14 +1,38 @@
 Package: fiorefactor
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+Title: Rust Powered Toy Package
+Version: 0.0.0.9001
+Authors@R: c(
+  person(
+    given = "Alberson",
+    family = "da Silva Miranda",
+    email = "albersonmiranda@hotmail.com",
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0001-9252-4175")
+    )
+  )
+Description: This is a toy package to test creating an Extendr-powered R package from only Rust code (i.e. not using a R function to wrap and document rust code), including documentation.
+URL: https://github.com/albersonmiranda/fiorefactor
+BugReports: https://github.com/albersonmiranda/fiorefactor/issues
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.3.2
-Config/rextendr/version: 0.4.1.9000
-SystemRequirements: Cargo (Rust's package manager), rustc
 Depends: 
     R (>= 4.2)
+SystemRequirements: Cargo (Rust's package manager), rustc >= 1.78, xz
+LazyData: true
+Imports: 
+    cli,
+    fs,
+    rlang
+License: MIT + file LICENSE
+Config/rextendr/version: 0.4.0.9000
+Suggests: 
+    knitr,
+    rmarkdown,
+    spelling,
+    writexl,
+    callr,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Language: en-US
+Config/testthat/edition: 3

@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/albersonmiranda/fiorefactor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/albersonmiranda/fiorefactor/actions/workflows/R-CMD-check.yaml)
+[![R-universe](https://albersonmiranda.r-universe.dev/badges/fiorefactor)](https://albersonmiranda.r-universe.dev/fiorefactor)
 <!-- badges: end -->
 
 An toy package to experiment creating an Extendr-powered R package from
