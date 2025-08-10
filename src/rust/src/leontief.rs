@@ -1,5 +1,4 @@
 use extendr_api::prelude::*;
-use rayon::prelude::*;
 use faer::{Mat, linalg::solvers::Solve};
 use crate::iom::Iom;
 
@@ -23,7 +22,7 @@ impl Iom {
       // divide each entry of intermediate_transactions by each column of total_production
       let a_matrix: Vec<f64> = self
           .intermediate_transactions
-          .par_iter()
+          .iter()
           .enumerate()
           .map(|(i, value)| value / self.total_production[i / n])
           .collect();

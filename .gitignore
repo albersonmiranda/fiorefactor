@@ -6,3 +6,4 @@ src/vendor
 *.Rcheck
 *.tar.gz
 .vscode/
+src/Makevars.wasm

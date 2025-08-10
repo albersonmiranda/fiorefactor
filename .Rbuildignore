@@ -10,3 +10,4 @@
 ^\.vscode$
 ^\.github$
 ^README\.Rmd$
+^src/Makevars\.wasm$
