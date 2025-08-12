@@ -10,5 +10,3 @@ name = 'fiorefactor'
 
 [dependencies]
 extendr-api = {git = 'https://github.com/albersonmiranda/extendr.git', branch = 'methods-docs'}
-num_cpus = '1.16.0'
-faer = { version = '0.21.9' }

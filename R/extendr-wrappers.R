@@ -84,21 +84,6 @@ NULL
 #'}
 #'}
 #'
-#'\subsection{Method `compute_leontief_inverse`}{
-#'Compute the Leontief inverse matrix and populate the `leontief_inverse_matrix` field.
-#' \subsection{usage}{
-#' \preformatted{
-#'NULL
-#'}
-#'}
-#' \subsection{details}{
-#'It computes the Leontief inverse matrix, a nxn matrix, known as `L` matrix, which is the inverse of the identity matrix minus the technical coefficients matrix.
-#'}
-#' \subsection{return}{
-#'Self (invisibly)
-#'}
-#'}
-#'
 #' @examples
 #'## ---- Method `compute_technical_coefficients` ---- ##
 #'iom <- Iom$new(
@@ -108,15 +93,6 @@ NULL
 #')
 #'iom$compute_technical_coefficients()
 #'iom$technical_coefficients_matrix
-#'
-#'## ---- Method `compute_leontief_inverse` ---- ##
-#'iom <- Iom$new(
-#'name = "example",
-#'intermediate_transactions = c(1, 2, 3, 4),
-#'total_production = c(5, 6)
-#')
-#'iom$compute_leontief_inverse()
-#'iom$leontief_inverse_matrix
 #'
 #'
 Iom <- new.env(parent = emptyenv())
@@ -136,8 +112,6 @@ Iom$technical_coefficients_matrix <- function() .Call(wrap__Iom__technical_coeff
 Iom$leontief_inverse_matrix <- function() .Call(wrap__Iom__leontief_inverse_matrix, self)
 
 Iom$compute_technical_coefficients <- function() invisible(.Call(wrap__Iom__compute_technical_coefficients, self))
-
-Iom$compute_leontief_inverse <- function() invisible(.Call(wrap__Iom__compute_leontief_inverse, self))
 
 #' @rdname Iom
 #' @usage NULL

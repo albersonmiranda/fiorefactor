@@ -71,21 +71,6 @@ It computes the technical coefficientex matrix, a nxn matrix, known as \code{A} 
 Self (invisibly)
 }
 }
-
-\subsection{Method \code{compute_leontief_inverse}}{
-Compute the Leontief inverse matrix and populate the \code{leontief_inverse_matrix} field.
-\subsection{usage}{
-\preformatted{
-NULL
-}
-}
-\subsection{details}{
-It computes the Leontief inverse matrix, a nxn matrix, known as \code{L} matrix, which is the inverse of the identity matrix minus the technical coefficients matrix.
-}
-\subsection{return}{
-Self (invisibly)
-}
-}
 }
 
 \examples{
@@ -106,15 +91,6 @@ total_production = c(5, 6)
 )
 iom$compute_technical_coefficients()
 iom$technical_coefficients_matrix
-
-## ---- Method `compute_leontief_inverse` ---- ##
-iom <- Iom$new(
-name = "example",
-intermediate_transactions = c(1, 2, 3, 4),
-total_production = c(5, 6)
-)
-iom$compute_leontief_inverse()
-iom$leontief_inverse_matrix
 
 
 }
