@@ -10,3 +10,12 @@ name = 'fiorefactor'
 
 [dependencies]
 extendr-api = {git = 'https://github.com/albersonmiranda/extendr.git', branch = 'methods-docs'}
+
+# Profile settings to optimize for WebAssembly (smaller output, better linking).
+# lto=true enables Link Time Optimization which is important for reducing wasm size
+# and eliminating unused code across crate boundaries.
+# codegen-units=1 further improves optimization (at the cost of longer compile times)
+# by allowing the optimizer to see the entire crate at once.
+[profile.release]
+lto = true
+codegen-units = 1
