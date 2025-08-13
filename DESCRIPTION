@@ -1,6 +1,6 @@
 Package: fiorefactor
 Title: Rust Powered Toy Package
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: c(
   person(
     given = "Alberson",
