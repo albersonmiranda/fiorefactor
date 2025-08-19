@@ -2,5 +2,6 @@
 
 S3method("$",Iom)
 S3method("[[",Iom)
+S3method(print,Iom)
 export(Iom)
 useDynLib(fiorefactor, .registration = TRUE)
